@@ -1,0 +1,474 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    position: relative;
+    display: flex; 
+    justify-content: space-around;
+    padding: 22px;
+    width:100%;
+    position: fixed;
+    top:0%;
+    background-color:rgb(63,62,62);
+    z-index:999;
+}
+nav ul{
+    display:flex;
+    align-items:center;
+    margin: 10px;
+}
+ul li{
+    list-style:none;
+    margin-inline:10px;
+}
+ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color:white;
+    transition: all ease 0.5s;
+}
+ul li a:hover{
+    color:orangered;
+    border-bottom:2px solid orangered;
+}
+.icons{
+    display:flex; 
+    align-items: center; 
+    cursor: pointer;
+}
+.icons i{
+    margin-inline: 18px;
+    font-size: 20px;
+    background-color: white;
+    padding: 8px;
+    border-radius: 4px;
+}
+.logo h1{
+    font-size:30px;
+    color:white;
+
+}
+.main{
+    display:flex;
+    justify-content: space-around;
+    background-image: url('photose/image8.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 44px;
+    color: white;
+    padding-top: 150px;
+    margin-top: 80px;
+}
+
+.mainText h1{
+    font-size: 50px;
+}
+.mainText h3{
+    font-size: 30px;
+    margin-top: 12px;
+}
+.mainText p{
+    margin-top: 22px;
+}
+.mainText button{
+    font-size: 20px;
+    width: 140px;
+    height:36px;
+    border:2px solid rgb(8,212,8);
+    color: white;
+    background-color: transparent;
+    margin-top: 22px;
+    transform: all ease 0.5s;
+}
+.mainText button:hover{
+    background-color: rgb(4,152,4);
+    cursor: pointer;
+}
+.main h1 span{
+    color:rgb(7,231,7)
+} 
+.main img {
+    max-width: 35%; 
+    height: auto;
+    margin-top: -100px;
+  }
+/* .................................................. */
+.logo span,
+.main span
+.head h3 span{
+    color:orangered
+} 
+.cards{
+    display:grid;
+    justify-content: center;
+    width:80%;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    margin: auto;
+} 
+.cards .crd{
+    margin-inline:22px;
+    background-color: #fff;
+    /* margin-top: 42px; */
+    margin: 40px;
+    width:320px;
+    height:380px;
+    /* margin-bottom: 20px; */
+}
+.crd:hover{
+    background-color: rgb(179,179,179);
+    cursor: pointer;
+}
+.crd h3{
+    margin-top: 10px;
+    margin-left: 11px;
+}
+.crd p{
+    padding:10px;
+}
+.crd button{
+    width:90px;
+    height:29px;
+    background-color: orangered;
+    color: white;
+    font-size: 18px;
+    border:none;
+    margin-top:11px;
+    margin-left: 11px;
+}
+.crd button:hover{
+    background-color: transparent;
+    border:2px solid orangered;
+    color:black;
+    cursor: pointer;
+}
+.cards .crd img{
+    width:100%;
+    height:200px;
+}
+.head{
+    text-align: center;
+    padding: 90px;
+    font-size: 28px;
+}
+/* ................................. */
+.review{
+    width:800px;
+    height:250px;
+    position:relative;
+    margin: auto;
+    overflow: hidden;
+    border: 2px solid  rgb(179,179,179);
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+}
+.review .slide{
+    position: absolute;
+    width:100%;
+    height:100%;
+    padding:3px;
+    transition: all 1s ease;
+    text-align: center;
+    background-color: #fff;
+}
+.slide img{
+    border-radius: 50px;
+    width:25%;
+    height:60%;
+    margin-top: 11px;
+}
+.slide p{
+    padding:30px;
+}
+/* .................................................. */
+
+.blog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .blogCard {
+    width: 300px;
+    height: 350px;
+    background-color: rgb(99, 99, 99);
+    padding: 11px;
+    margin-inline: 22px;
+    color: white;
+    margin-top: 22px;
+    text-align: center; 
+    overflow: hidden; 
+    border-radius: 10px; 
+  }
+  
+  .blogCard img {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+  }
+  
+  .blogCard h3,
+  .blogCard p {
+    margin: 10px 0;
+  }
+.blogCard h3{
+    margin-top: 11px;
+}
+.blogCard p{
+    margin-top: 8px;
+}
+.blogCard a{
+    position: absolute;
+    margin-top: 25px;
+    padding: 4px;
+    text-decoration: none;
+    border: none;
+    background-color: orangered;
+    color:white;
+    font-size: 15px;
+    border-radius: 2px;
+}
+.footer {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    padding: 50px;
+    margin-top: 80px;
+    border-top: 2px solid #ccc;
+    color: #333;
+}
+
+.footer .text {
+    flex: 1 1 200px;
+    margin: 10px; 
+}
+
+.footer .text h3 {
+    margin-bottom: 15px;
+    color: #222;
+    font-size: 1.2rem;
+    font-weight: bold; 
+}
+
+.footer .text p {
+    margin: 5px 0;
+    font-size: 1rem; 
+    line-height: 1.5; 
+}
+
+.end {
+    border-top: 2px solid #ccc;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.end i{
+    font-size: 30px;
+}
+
+/* ........................................... */
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-track{
+    background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #888;
+    border-radius: 5px;
+}
+  
+::-webkit-scrollbar-thumb:hover{
+    background-color: #555;
+}
+
+  
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.theme-toggle i.active {
+    color: orangered;
+}
+
+body.light {
+    background-color: #fff;
+    color: black;
+}
+
+body.dark {
+    background-color: #333;
+    color: white;
+}
+
+.head span {
+    color: orangered;
+}
+
+button.active {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+body.light .icons{
+    color: black; 
+}
+body.dark .icons{
+    color: black; 
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease; 
+}
+
+body.light .footer {
+    background-color: #f0f0f0; 
+    color: black; 
+}
+
+
+body.light .end {
+    background-color: #f0f0f0; 
+    color: black;
+}
+
+body.dark .footer {
+    background-color: #222; 
+    color: white;
+}
+
+body.dark .end  {
+    background-color: #222; 
+    color: white;
+}
+body.dark .end i {
+    color: white;
+}
+
+@media only screen and (max-width: 840px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center; 
+    }
+
+    .main img {
+        max-width: 80%;
+        margin-top: 30px; 
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    #bar {
+        display: block;
+    }
+
+    .showitem {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: 75px;
+        background-color: rgb(153, 153, 153);
+        color: rgb(109, 106, 106);
+        width: 100%;
+        height: auto;
+        gap: 22px;
+        z-index: 1000;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .mainText h1 {
+        font-size: 30px;
+    }
+
+    .mainText h3 {
+        font-size: 24px;
+    }
+
+    .mainText button {
+        font-size: 18px;
+        width: 120px;
+        height: 36px;
+    }
+
+    .theme-toggle {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+
+  @media (max-width: 1024px) {
+    nav ul {
+        display: none;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+
+    .mainText h1 {
+        font-size: 36px;
+    }
+
+    .cards .crd {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .review {
+        width: 90%;
+    }
+    .slide img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blogCard {
+        width: 100%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainText h1 {
+        font-size: 28px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
