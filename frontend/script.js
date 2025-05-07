@@ -7,7 +7,6 @@ slides.forEach((slide, index) => {
   slide.style.left = `${index * 100}%`;
 });
 
-
 function slide() {
   slides.forEach((slide) => {
     slide.style.transform = `translateX(-${count * 100}%)`;
