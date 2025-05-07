@@ -1,96 +1,25 @@
 
-// let slides = document.querySelectorAll(".slide"); 
-// let baricon=document.getElementById("bar")
-// let ul=document.querySelector("ul");
-// console.log(slides);
-// let count = 0;
-
-// slides.forEach(function (slide, index) {
-//   slide.style.left = `${index * 100}%`;
-// });
-
-// function slide() {
-//   slides.forEach(function (curvel) {
-//     curvel.style.transform = `translateX(-${count * 100}%)`;
-//     console.log(curvel);
-//   });
-// }
-
-// setInterval(function () {
-//   count++;
-//   if (count === slides.length) {
-//     count = 0; 
-//   }
-//   slide();
-// }, 2000);
-
-// baricon.addEventListener("click", function () {
-//   ul.classList.toggle("showitem"); 
-
-//   if (ul.classList.contains("showitem")) { 
-//     baricon.className = "fa-solid fa-xmark"; 
-//   } else {
-//     baricon.className = "fa-solid fa-bars"; 
-//   }
-// });
-
-// let savetheme = localStorage.getItem("theme") || "light";
-
-// // Select toggle buttons
-// const toggleLight = document.getElementById("toggleLight"); // Ensure ID matches HTML
-// const toggleDark = document.getElementById("toggleDark");
-
-// // Apply the saved theme on page load
-// document.body.classList.add(savetheme);
-// if (savetheme === 'light') {
-//   toggleLight.classList.add('active');
-// } else {
-//   toggleDark.classList.add('active');
-// }
-
-// // Light mode toggle
-// toggleLight.addEventListener("click", function () {
-//   document.body.classList.remove('dark');
-//   document.body.classList.add('light');
-//   localStorage.setItem('theme', 'light');
-//   toggleLight.classList.add('active');
-//   toggleDark.classList.remove('active');
-// });
-
-// // Dark mode toggle
-// toggleDark.addEventListener("click", function () {
-//   document.body.classList.remove('light');
-//   document.body.classList.add('dark');
-//   localStorage.setItem('theme', 'dark');
-//   toggleDark.classList.add('active');
-//   toggleLight.classList.remove('active');
-// });
-
-
-
-// Slide Functionality
 const slides = document.querySelectorAll(".slide");
 let count = 0;
 
-// Arrange slides horizontally                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                     
 slides.forEach((slide, index) => {
   slide.style.left = `${index * 100}%`;
 });
 
-// Slide transition function
+
 function slide() {
   slides.forEach((slide) => {
     slide.style.transform = `translateX(-${count * 100}%)`;
   });
 }
 
-// Auto-slide every 2 seconds
+
 setInterval(() => {
   count = (count + 1) % slides.length; 
   slide();
 }, 2000);
 
-// Toggle Navigation Menu
 const barIcon = document.getElementById("bar");
 const ul = document.querySelector("ul");
 
@@ -101,12 +30,12 @@ barIcon.addEventListener("click", () => {
     : "fa-solid fa-bars"; 
 });
 
-// Light/Dark Theme Functionality
+
 const toggleLight = document.getElementById("toggleLight");
 const toggleDark = document.getElementById("toggleDark");
 const savedTheme = localStorage.getItem("theme") || "light";
 
-// Apply saved theme on page load
+
 document.body.classList.add(savedTheme);
 if (savedTheme === "light") {
   toggleLight.classList.add("active");
@@ -114,7 +43,7 @@ if (savedTheme === "light") {
   toggleDark.classList.add("active");
 }
 
-// Light theme button
+
 toggleLight.addEventListener("click", () => {
   document.body.className = "light"; 
   localStorage.setItem("theme", "light");
@@ -122,10 +51,114 @@ toggleLight.addEventListener("click", () => {
   toggleDark.classList.remove("active");
 });
 
-// Dark theme button
+
 toggleDark.addEventListener("click", () => {
   document.body.className = "dark";
   localStorage.setItem("theme", "dark");
   toggleDark.classList.add("active");
   toggleLight.classList.remove("active");
 });
+
+
+  function closeLoginForm() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+
+
+document.getElementById("user").onclick = handleUserClick;
+
+
+function closeSignupForm() {
+  document.getElementById("signupModal").style.display = "none";
+}
+
+
+  function handleSignup(event) {
+    const email = document.getElementById("signupEmail").value.trim();
+    const password = document.getElementById("signupPassword").value.trim();
+      document.getElementById("loginModal").style.display = "none";
+    document.getElementById("signupModal").style.display = "block";
+
+    if (email && password) {
+      const userData = {
+        email: email,
+        password: password
+      };
+  
+      localStorage.setItem("userData", JSON.stringify(userData)); 
+  
+      alert("Signup Successfully");
+      closeSignupForm();
+    } else {
+      alert("Please fill all fields.");
+    }
+  }
+
+  function handleLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+    document.getElementById("signupModal").style.display = "none";
+    document.getElementById("loginModal").style.display = "block";
+  
+    const storedUser = JSON.parse(localStorage.getItem("userData"));
+
+  
+    if (storedUser && storedUser.email === email && storedUser.password === password) {
+      const firstLetter = email.charAt(0).toUpperCase();
+      localStorage.setItem("userInitial", firstLetter); 
+  
+      updateUserIcon(); 
+      alert("Login Successfully");
+      closeLoginForm();
+      location.reload();
+      return true
+    } else {
+      alert("Invalid email or password");
+      return false
+    }
+  }
+
+    function updateUserIcon() {
+    const initial = localStorage.getItem("userInitial");
+    const userIcon = document.getElementById("user");
+    if (initial) {
+      userIcon.innerText = initial;        
+      userIcon.className = "user-initial"; 
+      document.getElementById("logoutMenu").style.display = "block";
+    }
+  }
+
+  function handleUserClick() {
+    const initial = localStorage.getItem("userInitial");
+    console.log("userInitial from localStorage:", initial); 
+  
+    const logoutMenu = document.getElementById("logoutMenu");
+  
+    if (initial) {
+    
+      logoutMenu.style.display = logoutMenu.style.display === "block" ? "none" : "block";
+    } else {
+   
+      document.getElementById("loginModal").style.display = "block";
+    }
+  }
+  function logout() {
+    localStorage.removeItem("userInitial");
+    const userIcon = document.getElementById("user");
+  
+
+    userIcon.innerText = "";
+    userIcon.className = "fa-solid fa-user";
+  
+
+    document.getElementById("logoutMenu").style.display = "none";
+  
+ 
+    document.getElementById("loginModal").style.display = "none";
+  
+    alert("Logout Successfully");
+  }
+  window.onload = () => {
+    updateUserIcon();
+  };

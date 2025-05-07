@@ -22,14 +22,52 @@
       <div class="icons">
         <i class="fa-solid fa-bars" id="bar"></i>
         <i class="fa-solid fa-magnifying-glass" id="search"></i>
-        <i class="fa-solid fa-user" id="user"></i>
+        
+        <i class="fa-solid fa-user" id="user" onclick="handleUserClick()"></i>
+          
+          
+        <div id="logoutMenu" style="display: none;">
+            <button class="btn" onclick="logout()">Logout</button>
+        </div>
       </div>
       <div class="theme-toggle">
         <i class="fa-solid fa-sun" id="toggleLight"></i>
         <i class="fa-solid fa-moon" id="toggleDark"></i>
       </div>
     </nav>
-    <!-- ........................... -->
+      
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginForm()">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                <!-- <button class="button" onclick="handleLogin()">Login</button> -->
+                <button class="button">Login</button>
+                <p>Don't have an account? <a href="javascript:void(0);" onclick="handleSignup()">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Form Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignupForm()">&times;</span>
+            <h2>Signup</h2>
+            <form id="signupForm">
+                <input type="text" id="signupName" placeholder="Enter your name" required>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                <input type="password" id="signupPassword" placeholder="Enter your password" required>
+                <button class="button" onclick="handleSignup()">Signup</button>
+                <p>Already have an account? <a href="javascript:void(0);" onclick="handleLogin()">Login</a></p>
+            </form>
+        </div>
+    </div>
+    
+      <!-- User Icon and Logout Menu -->
+  
+    <!-- .............main section.............. -->
      <div class="main" id="home">
         <div class="mainText">
             <h1><span>Eat batter</span> Not Less</h1>
@@ -39,7 +77,7 @@
         </div>
         <img src="photose/food.png" alt="Food Image">
      </div>
-    <!-- ................................................... -->
+    <!-- .....................food section.............................. -->
      <div class="fdCard" id="foods">
         <div class="head">
             <h3>Our <span>food</span></h3>
@@ -101,7 +139,7 @@
             </div>
         </div>
      </div>
-     <!-- ................................................. -->
+     <!-- ...................reviews section.............................. -->
     <div class="customer" id="reviews">
         <div class="head">
             <h3>Customer<span>Reviews</span></h3>
@@ -133,7 +171,7 @@
             </div>
         </div>
     </div>
-    <!-- .................................................... -->
+    <!-- .....................blog section............................... -->
     <div class="read" id="blogs">
         <div class="head">
             <h3>Read<span>Blog's</span></h3>
@@ -186,10 +224,29 @@
             <p>33333333333</p>
         </div>
     </div>
-    <!-- ........................................... -->
+    <!-- ...................footer section........................ -->
      <div class="end">
         <p>Created By: code with Yash pawar Scripter<span><a href="#home">  <i class="fa-solid fa-caret-up"></i></a></span></p>
      </div>
     <script src="script.js"></script>
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
