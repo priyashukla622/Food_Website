@@ -435,71 +435,6 @@ p{
     margin-top: 10px;
 }
 
-
-
-/* #user-container {
-    position: relative;
-    display: inline-block;
-  } */
-  
-  /* .user-icon{
-    background-color: #333;
-    color: #fff;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    cursor: pointer;
-  } 
-   
-  .logout-menu {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 5px;
-    z-index: 100;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  } 
-  
-  .logout-menu button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }  
-  
-  
-#logoutBtn{
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}  */
-
-
-
-/* 
-#logoutMenu {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    background: white;
-    border: 1px solid gray;
-    padding: 10px;
-    z-index: 1000;
-  } */
-  
-
-
   #logoutMenu {
     display: none;
     position: absolute;
@@ -526,6 +461,60 @@ p{
     font-size: 18px;
 }
   
+
+.explore-menu {
+    overflow: hidden; 
+    position: relative;
+}
+
+.food-div {
+    display: flex;
+    width: fit-content;
+    animation: scrollLeft 20s linear infinite; 
+    /* animation: scrollLeft 30s linear infinite; */
+
+} 
+.explore-text h1{
+    text-align: center;
+    margin-top:20px;
+}
+
+/* @keyframes scrollLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+} */
+
+@keyframes scrollLeft {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+.food-box {
+    min-width: 200px;
+    margin: 0 10px;
+    margin-top: 80px;
+}
+.food-box img {
+    width: 75%;
+    border-radius: 50%;
+    height:150px;
+    display: block;
+}
+.food-box p{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 30px;
+
+}
 @media only screen and (max-width: 840px) {
     .main {
         display: flex;

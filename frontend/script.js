@@ -117,7 +117,6 @@ function closeSignupForm() {
       return false
     }
   }
-
     function updateUserIcon() {
     const initial = localStorage.getItem("userInitial");
     const userIcon = document.getElementById("user");
