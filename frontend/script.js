@@ -160,3 +160,64 @@ function closeSignupForm() {
   window.onload = () => {
     updateUserIcon();
   };
+
+
+
+
+let allFoods = [];
+
+// Select HTML elements
+const foodContainer = document.getElementById("foodCards");
+const searchInput = document.querySelector(".food-input input");
+const searchBtn = document.querySelector(".food-btn");
+
+// ✅ Function to render cards
+function renderFoodCards(foods) {
+  foodContainer.innerHTML = ""; // clear previous
+
+  foods.forEach(food => {
+    const card = document.createElement("div");
+    card.className = "crd";
+    card.innerHTML = `
+      <img src="${food.image}" alt="${food.title}">
+      <h3>${food.title}</h3>
+      <p>${food.description}</p>
+      <button>Order</button>
+    `;
+    foodContainer.appendChild(card);
+  });
+}
+
+// ✅ API se data fetch
+function fetchFoods() {
+  fetch("https://food-website-lm7v.onrender.com/api/getFood")
+    .then(response => response.json())
+    .then(data => {
+      // Flatten all items from all categories into one array
+      allFoods = data.foodCategory.flatMap(category => category.items.map(item => ({
+        title: item.name,
+        image: item.image,
+        description: category.category  // optional: show category as description
+      })));
+
+      renderFoodCards(allFoods);
+    })
+    .catch(error => {
+      console.error("Error fetching food data:", error);
+    });
+}
+
+
+searchBtn.addEventListener("click", () => {
+  const searchTerm = searchInput.value.toLowerCase().trim();
+  const filteredFoods = allFoods.filter(food =>
+    food.title.toLowerCase().includes(searchTerm)
+  );
+  renderFoodCards(filteredFoods);
+});
+window.addEventListener("DOMContentLoaded", fetchFoods);
+
+
+
+
+
