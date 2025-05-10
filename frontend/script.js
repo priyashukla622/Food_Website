@@ -197,7 +197,7 @@ function fetchFoods() {
       allFoods = data.foodCategory.flatMap(category => category.items.map(item => ({
         title: item.name,
         image: item.image,
-        description: category.category  
+        description: item.description 
       })));
 
       renderFoodCards(allFoods);
