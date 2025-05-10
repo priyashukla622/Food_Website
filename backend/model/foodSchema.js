@@ -38,10 +38,11 @@ const foodCategorySchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  image: String,  // ✅ Yeh line add karo — category image ke liye
+  image: String,  
   items: [
     {
       name: String,
+      description:String,
       image: String  
     }
   ]

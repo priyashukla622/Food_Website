@@ -173,16 +173,17 @@ const searchBtn = document.querySelector(".food-btn");
 
 // ✅ Function to render cards
 function renderFoodCards(foods) {
-  foodContainer.innerHTML = ""; // clear previous
+  foodContainer.innerHTML = "";
 
   foods.forEach(food => {
     const card = document.createElement("div");
     card.className = "crd";
     card.innerHTML = `
       <img src="${food.image}" alt="${food.title}">
-      <h3>${food.title}</h3>
-      <p>${food.description}</p>
-      <button>Order</button>
+      <h4 style="font-size: 16px; margin-top:15px; margin-left:15px">${food.title}</h4>
+
+      <p style="font-size: 15px; margin-top:10px;">${food.description}</p>
+      <button style="font-size: 14px; margin-top:10px;">Order</button>
     `;
     foodContainer.appendChild(card);
   });
@@ -193,11 +194,10 @@ function fetchFoods() {
   fetch("https://food-website-lm7v.onrender.com/api/getFood")
     .then(response => response.json())
     .then(data => {
-      // Flatten all items from all categories into one array
       allFoods = data.foodCategory.flatMap(category => category.items.map(item => ({
         title: item.name,
         image: item.image,
-        description: category.category  // optional: show category as description
+        description: category.category  
       })));
 
       renderFoodCards(allFoods);
@@ -206,7 +206,6 @@ function fetchFoods() {
       console.error("Error fetching food data:", error);
     });
 }
-
 
 searchBtn.addEventListener("click", () => {
   const searchTerm = searchInput.value.toLowerCase().trim();
@@ -217,6 +216,24 @@ searchBtn.addEventListener("click", () => {
 });
 window.addEventListener("DOMContentLoaded", fetchFoods);
 
+
+
+
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    const filteredFoods = allFoods.filter(food =>
+      food.title.toLowerCase().includes(searchTerm)
+    );
+
+    if (filteredFoods.length > 0) {
+      renderFoodCards(filteredFoods);
+    } else {
+      renderFoodCards(allFoods); 
+    }
+  }
+});
 
 
 

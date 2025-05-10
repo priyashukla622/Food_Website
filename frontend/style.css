@@ -241,7 +241,7 @@ ul li a:hover{
 /* ...............review part.................. */
 .review{
     width:800px;
-    height:250px;
+    height:300px;
     position:relative;
     margin: auto;
     overflow: hidden;
@@ -277,7 +277,7 @@ ul li a:hover{
   
   .blogCard {
     width: 300px;
-    height: 350px;
+    height: 380px;
     background-color: rgb(99, 99, 99);
     padding: 11px;
     margin-inline: 22px;
@@ -305,17 +305,7 @@ ul li a:hover{
 .blogCard p{
     margin-top: 8px;
 }
-.blogCard a{
-    position: absolute;
-    margin-top: 25px;
-    padding: 4px;
-    text-decoration: none;
-    border: none;
-    background-color: orangered;
-    color:white;
-    font-size: 15px;
-    border-radius: 2px;
-}
+
 .footer {
     display: flex; 
     flex-wrap: wrap; 
@@ -563,14 +553,7 @@ p{
     margin-top:20px;
 }
 
-/* @keyframes scrollLeft {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-} */
+
 
 @keyframes scrollLeft {
     0% {
@@ -597,8 +580,8 @@ p{
     font-size: 18px;
     font-weight: 500;
     margin-right: 30px;
-
 }
+
 @media only screen and (max-width: 840px) {
     .main {
         display: flex;
